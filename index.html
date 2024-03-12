@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            var Money = 0;
+            var Upgraded1 = false;
+            var Upgraded2 = false;
+            var Upgraded3 = false;
+            var Upgraded4 = false;
+            var Upgraded5 = false;
+            var Upgraded6 = false;
+            function Display(targetElementId) {
+                document.getElementById(targetElementId).innerHTML = Money;
+            }
+            function Add(targetElementId) {
+                 if (Upgraded6 == true) {
+                    Money = Money + 10000
+                    document.getElementById(targetElementId).innerHTML = Money;
+                } else {
+                if (Upgraded5 == true) {
+                    Money = Money + 1000
+                    document.getElementById(targetElementId).innerHTML = Money;
+                } else {
+                if (Upgraded4 == true) {
+                    Money = Money + 100
+                    document.getElementById(targetElementId).innerHTML = Money;
+                } else {
+                if (Upgraded3 == true) {
+                    Money = Money + 10
+                    document.getElementById(targetElementId).innerHTML = Money;
+                } else {
+                if (Upgraded2 == true) {
+                    Money = Money + 5
+                    document.getElementById(targetElementId).innerHTML = Money;
+                }
+                else if (Upgraded2 == false) {
+                    if (Upgraded1 == false) {
+                Money = Money + 1
+                document.getElementById(targetElementId).innerHTML = Money;
+                } else if (Upgraded1 == true) {
+                    Money = Money + 2
+                    document.getElementById(targetElementId).innerHTML = Money;
+                }
+                }
+                }
+                }
+                }
+                }
+                }
+            function Upgrade1(targetElementId) {
+                if (Money >= 10 && Upgraded1 == false) {
+                    Money = Money - 10
+                    Upgraded1 = true
+                    document.getElementById(targetElementId).innerHTML = Money;
+                }
+            }
+            function Upgrade2(targetElementId) {
+                if (Money >= 50 && Upgraded1 == true) {
+                    Upgraded1 = false
+                    Upgraded2 = true
+                    Money = Money - 50
+                    document.getElementById(targetElementId).innerHTML = Money;
+                }
+            }
+            function Upgrade3(targetElementId) {
+                if (Money >= 300 && Upgraded2 == true) {
+                    Upgraded1 = false
+                    Upgraded2 = false
+                    Upgraded3 = true
+                    Money = Money - 300
+                    document.getElementById(targetElementId).innerHTML = Money;
+                }
+            }
+            function Upgrade4(targetElementId) {
+                if (Money >= 1000 && Upgraded3 == true) {
+                    Upgraded1 = false
+                    Upgraded2 = false
+                    Upgraded3 = false
+                    Upgraded4 = true
+                    Money = Money - 1000
+                    document.getElementById(targetElementId).innerHTML = Money;
+                }
+            }
+            function Upgrade5(targetElementId) {
+                if (Money >= 10000 && Upgraded4 == true) {
+                    Upgraded1 = false
+                    Upgraded2 = false
+                    Upgraded3 = false
+                    Upgraded4 = false
+                    Upgraded5 = true
+                    Money = Money - 10000
+                    document.getElementById(targetElementId).innerHTML = Money;
+                }
+            } 
+             function Upgrade6(targetElementId) {
+                if (Money >= 100000 && Upgraded5 == true) {
+                    Upgraded1 = false
+                    Upgraded2 = false
+                    Upgraded3 = false
+                    Upgraded4 = false
+                    Upgraded5 = false
+                    Upgraded6 = true
+                    Money = Money - 100000
+                    document.getElementById(targetElementId).innerHTML = Money;
+                }
+            } 
+ 
+        </script>
+        <style>
+            body {
+                background-color: lightgrey;
+            }
+            
+            header {
+                height: 100px;
+            }
+            #target {
+                height: 20px;
+            }
+            button {
+                background-color: lightgrey;
+            }
+            img {
+                height: 100px;
+            }
+            #AddButton {
+                border-width: 0px;
+            }
+        </style>
+    </head>
+    <body onload="Display('target')">
+        <p><span id="target"></span> Cookies</p>
+        <button id="AddButton" onclick="Add('target')"><img src="Sprites/Cookie.png"></img></button>
+        <hr>
+        <h1>Upgrades</h1>
+        <button id="Upgrade1" onclick="Upgrade1('target')">Better Cookies (-10$)</button>
+        <button id="Upgrade2" onclick="Upgrade2('target')">Choclate Chips (-50$)</button>
+        <button id="Upgrade3" onclick="Upgrade3('target')">Oven Repairs (-300$)</button>
+        <button id="Upgrade4" onclick="Upgrade4('target')">Workers (-1000$)</button>
+        <button id="Upgrade5" onclick="Upgrade5('target')">Sponsorships (-10000$)</button>
+        <button id="Upgrade6" onclick="Upgrade6('target')">Billboard Advertising (-100000$)</button>
+        <hr>
+    </body>
+</html>
